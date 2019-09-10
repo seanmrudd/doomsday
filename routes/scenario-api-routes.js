@@ -30,11 +30,13 @@ module.exports = function(app) {
     });
   });
   app.put("/api/scenario", function(req, res) {
-    db.Scenario.update(req.body, {
-      where: {
-        id: req.body.id
-      }
-    }).then(function(dbScenario) {
+    db.Scenario.update(
+      req.body,
+      {
+        where: {
+          id: req.body.id
+        }
+      }).then(function(dbScenario) {
       res.json(dbScenario);
     });
   });

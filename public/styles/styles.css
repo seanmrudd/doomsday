@@ -67,8 +67,7 @@ body {
   color: #303e3a;
   border-width: 2px;
   border: #303e3a;
-  position: absolute;
-  right: 0;
+  float: right;
 }
 
 .deleteButton {
@@ -76,9 +75,16 @@ body {
   color: white;
   border-width: 2px;
   border: #303e3a;
-  right: 0;
-  bottom: 0;
-  position: absolute;
+  float: right;
+
+}
+
+.editButton {
+  background-color: #ede8c2;
+  color: #303e3a;
+  border-width: 2px;
+  border: #303e3a;
+  float: right;
 }
 
 .scenarioButton:hover {
@@ -91,6 +97,13 @@ body {
 .deleteButton:hover {
   background-color: white;
   color: red;
+  border-width: 2px;
+  border: #ede8c2;
+}
+
+.editButton:hover {
+  background-color: #303e3a;
+  color: #ede8c2;
   border-width: 2px;
   border: #ede8c2;
 }
