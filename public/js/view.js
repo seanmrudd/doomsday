@@ -3,7 +3,10 @@ var createScenarioTitle = $("<h5>");
 var createScenarioPicture = $("<img>");
 var cardText = $("<p>");
 var scenarioButton = $("<button>");
-var anchor = $("<a>")
+var deleteButton = $("<button>");
+var anchor = $("<a>");
+var deleteAnchor = $("<a>");
+
 $(function () {
   $.ajax("/api/scenario", {
     type: "get"
@@ -24,8 +27,12 @@ $(function () {
       cardText.attr("id", "cardText" + data[i].id);
       scenarioButton.attr("id", "cardButton" + data[i].id);
       scenarioButton.attr("value", data[i].id);
+      deleteButton.attr("id", "cardButton" + data[i].id);
+      deleteButton.attr("value", data[i].id);
       anchor.attr("id", "anchorId" + data[i].id);
       anchor.attr("href", "/scenario");
+      deleteAnchor.attr("id", "deleteAnchorId" + data[i].id);
+      deleteAnchor.attr("onclick", "handleDelete()");
       $("#cardTitle" + data[i].id).html(data[i].scenario_title);
       $("#cardPicture" + data[i].id).attr("src", data[i].scenario_image_url);
       $("#cardText" + data[i].id).text(briefDescription);
@@ -38,6 +45,17 @@ $(function () {
     });
   });
 });
+
+function handleDelete() {
+  let id = localStorage.getItem("id");
+  $.ajax({
+    method: "delete",
+    url: "/api/scenario/" + id
+  })
+    .then(window.location.reload());
+}
+
+
 function createScenario() {
   var newScenario = $("<section>");
   newScenario.addClass("cardinfo animated rollIn");
@@ -81,9 +99,15 @@ function createScenario() {
   })
   createCardTextColumn.append(cardText);
   anchor = $("<a>");
+  deleteAnchor = $("<a>");
   scenarioButton = $("<button>");
   scenarioButton.text("View Full Scenario");
   scenarioButton.addClass("btn btn-primary scenarioButton");
-  anchor.append(scenarioButton)
+  deleteButton = $("<button>");
+  deleteButton.text("Delete Scenario");
+  deleteButton.addClass("btn btn-primary deleteButton");
+  anchor.append(scenarioButton);
+  deleteAnchor.append(deleteButton);
   createCardTextColumn.append(anchor);
+  createCardTextColumn.append(deleteAnchor);
 }

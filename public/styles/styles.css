@@ -69,12 +69,28 @@ body {
   border: #303e3a;
   position: absolute;
   right: 0;
+}
+
+.deleteButton {
+  background-color: red;
+  color: white;
+  border-width: 2px;
+  border: #303e3a;
+  right: 0;
   bottom: 0;
+  position: absolute;
 }
 
 .scenarioButton:hover {
   background-color: #303e3a;
   color: #ede8c2;
+  border-width: 2px;
+  border: #ede8c2;
+}
+
+.deleteButton:hover {
+  background-color: white;
+  color: red;
   border-width: 2px;
   border: #ede8c2;
 }
