@@ -5,8 +5,6 @@ var cardText = $("<p>");
 var scenarioButton = $("<button>");
 var deleteButton = $("<button>");
 var anchor = $("<a>");
-var deleteAnchor = $("<a>");
-var editAnchor = $("<a>");
 
 $(function () {
   $.ajax("/api/scenario", {

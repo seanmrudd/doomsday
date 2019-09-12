@@ -26,12 +26,5 @@ module.exports = function(app) {
   app.get("/editScenario", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/editScenario.html"));
   });
-
-  // app.get("/scenario", function(req, res) {
-  //   res.sendFile(path.join(__dirname, "../public/scenario.html/:id"));
-  // });
-
-  // app.get("*", function(req, res) {
-  //   res.sendFile(path.join(__dirname, "../public/index.html"));
-  // });
+  
 };
