@@ -62,5 +62,8 @@ function createPlan() {
   createRow.append(createSecondColumn);
   planAuthor = $("<div>");
   planAuthor.addClass("plansForResponse");
+  scenarioButton = $("<button>");
+  scenarioButton.addClass("btn btn-primary scenarioButton");
   createSecondColumn.append(planAuthor);
+  createSecondColumn.append(scenarioButton);
 }
